@@ -1,8 +1,9 @@
 import { Form, FormBody, LogoBody } from "./loginFormStyle";
 import { Col, Row } from "antd";
 import logoImg from "../../assets/images/logo.png";
+import { Link } from "react-router-dom";
 
-const LoginForm = function () {
+const PasswordForm = function () {
   return (
     <>
       <Row>
@@ -14,13 +15,14 @@ const LoginForm = function () {
             </LogoBody>
             <FormBody>
               <label id="label" htmlFor="">
-                ورود | ثبت نام
+                رمز عبور خود را وارد کنید
               </label>
-              <span>شماره موبایل خود را وارد کنید</span>
+              <span>رمز عبور حساب کاربری خود را وارد کنید</span>
               <div>
                 <input />
-                <button>X</button>
               </div>
+              <p>ورود با رمز یکبار مصرف </p>
+              <p>فراموشی رمز عبور</p>
               <button className="btn">ورود به سایت</button>
             </FormBody>
           </Form>
@@ -30,4 +32,4 @@ const LoginForm = function () {
   );
 };
 
-export default LoginForm;
+export default PasswordForm;
