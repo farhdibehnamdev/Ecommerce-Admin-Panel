@@ -1,4 +1,15 @@
-import { ExpandMore } from "@mui/icons-material";
+import {
+  ExpandMore,
+  ExitToApp,
+  Inventory2,
+  AddCard,
+  CreditCard,
+  Category,
+  Label,
+  FeaturedPlayList,
+  ContentCopy,
+  Person,
+} from "@mui/icons-material";
 import {
   Box,
   Divider,
@@ -10,13 +21,26 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
+  IconButton,
   Grid,
+  ListItemText,
+  ListItem,
+  styled,
 } from "@mui/material";
 import MainAppBar from "./AppBar";
 import profileImg from "../../assets/images/user.png";
 import { useState } from "react";
 
 const drawerWidth = 240;
+const MenuList = styled(List)({
+  width: "100%",
+  maxWidth: 360,
+  bgcolor: "background.paper",
+});
+
+const MenuListItem = styled(ListItemText)({
+  textAlign: "right",
+});
 
 const Sidebar = function () {
   const [isShow, setIsShow] = useState(false);
@@ -27,87 +51,175 @@ const Sidebar = function () {
       <Drawer
         sx={{
           width: drawerWidth,
-          zIndex: "999",
           flexShrink: 0,
           "& .MuiDrawer-paper": {
             width: drawerWidth,
+            top: "60px",
             boxSizing: "border-box",
+            zIndex: "-999",
           },
           display: { xs: `${isShow ? "block" : "none"}`, sm: "block" },
         }}
         variant="permanent"
         anchor="right"
       >
-        {/* <Toolbar /> */}
-        <Divider />
         <List>
           <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              flexDirection: "column",
-              borderBottom: "1px solid #cecece",
-              padding: "20px 0",
-              margin: "0 10px 0 10px",
-            }}
+            p={2}
+            display="flex"
+            alignItems="center"
+            flexDirection="column"
+            mr={2}
+            ml={2}
           >
             <Avatar src={profileImg} />
-            <Typography sx={{ pt: 2 }}>زهرا چگینی</Typography>
+            <Typography pt={2}>زهرا چگینی</Typography>
           </Box>
-          <Grid
-            container
-            flex={1}
-            sx={{
-              borderBottom: "1px solid #cecece",
-              margin: "0 10px 0 10px",
-            }}
-          >
-            <Accordion
+          <Divider />
+          <Grid container flex={1}>
+            <Typography
+              fontWeight="bold"
+              pr={2}
+              pt={2}
+              pb={2}
               sx={{
                 width: "100%",
-                boxShadow: 0,
+                borderBottom: "1px solid #cecece",
               }}
             >
-              <AccordionSummary
-                expandIcon={<ExpandMore />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <Typography sx={{ fontWeight: "bold" }}>محصولات</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography variant="subtitle1">همه محصولات</Typography>
-                <Typography variant="subtitle1">افزودن محصول جدید</Typography>
-                <Typography variant="subtitle1">دسته بندی محصولات</Typography>
-                <Typography variant="subtitle1">برچسب ها</Typography>
-                <Typography variant="subtitle1">ویژگیها</Typography>
-                <Typography variant="subtitle1">تعریف گروه</Typography>
-              </AccordionDetails>
-            </Accordion>
+              محصولات
+            </Typography>
+            <Divider />
+            <MenuList
+              component="nav"
+              aria-label="mailbox folders"
+              display="flex"
+              flexDirection="column"
+              alignItems="start"
+            >
+              <ListItem button>
+                <IconButton
+                  aria-label="open drawer"
+                  sx={{
+                    color: "#717171",
+                    width: "40px",
+                    fontWeight: "bold",
+                  }}
+                >
+                  <CreditCard />
+                </IconButton>
+                <MenuListItem primary="همه محصولات" />
+              </ListItem>
+              <Divider />
+              <ListItem button divider>
+                <IconButton
+                  aria-label="open drawer"
+                  sx={{
+                    color: "#717171",
+                    width: "40px",
+                    fontWeight: "bold",
+                  }}
+                >
+                  <AddCard />
+                </IconButton>
+                <MenuListItem primary="افزودن محصول جدید" />
+              </ListItem>
+              <ListItem button divider>
+                <IconButton
+                  aria-label="open drawer"
+                  sx={{
+                    color: "#717171",
+                    width: "40px",
+                    fontWeight: "bold",
+                  }}
+                >
+                  <Category />
+                </IconButton>
+                <MenuListItem primary="دسته بندی محصولات" />
+              </ListItem>
+              <ListItem button divider>
+                <IconButton
+                  aria-label="open drawer"
+                  sx={{
+                    color: "#717171",
+                    width: "40px",
+                    fontWeight: "bold",
+                  }}
+                >
+                  <Label />
+                </IconButton>
+                <MenuListItem primary="برچسب ها" />
+              </ListItem>
+              <ListItem button divider>
+                <IconButton
+                  aria-label="open drawer"
+                  sx={{
+                    color: "#717171",
+                    width: "40px",
+                    fontWeight: "bold",
+                  }}
+                >
+                  <FeaturedPlayList />
+                </IconButton>
+                <MenuListItem primary="ویژگیها" />
+              </ListItem>
+              <ListItem button divider>
+                <IconButton
+                  aria-label="open drawer"
+                  sx={{
+                    color: "#717171",
+                    width: "40px",
+                    fontWeight: "bold",
+                  }}
+                >
+                  <ContentCopy />
+                </IconButton>
+                <MenuListItem primary="تعریف گروه ها" />
+              </ListItem>
+            </MenuList>
           </Grid>
           <Grid
             container
             flex={1}
             sx={{
               borderBottom: "1px solid #cecece",
-              margin: "0 10px",
             }}
           >
-            <Accordion
+            <IconButton
+              aria-label="open drawer"
               sx={{
-                width: "100%",
-                boxShadow: 0,
+                color: "#717171",
+                width: "40px",
+                fontWeight: "bold",
               }}
             >
-              <AccordionSummary
-                expandIcon={<ExpandMore />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <Typography sx={{ fontWeight: "bold" }}>حساب کاربری</Typography>
-              </AccordionSummary>
-            </Accordion>
+              <Person />
+            </IconButton>
+            <Typography fontWeight="bold" pb={2} pt={2} pr={2}>
+              حساب کاربری
+            </Typography>
           </Grid>
+          <Typography
+            sx={{
+              margin: "10px 10px",
+              fontWeight: "bold",
+              display: "flex",
+              alignItems: "center",
+              display: { xs: "block", sm: "none" },
+            }}
+          >
+            <IconButton
+              aria-label="open drawer"
+              sx={{
+                color: "#717171",
+                width: "40px",
+                fontWeight: "bold",
+              }}
+            >
+              <ExitToApp />
+            </IconButton>
+            خروج
+          </Typography>
         </List>
       </Drawer>
     </Box>
