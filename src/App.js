@@ -6,7 +6,7 @@ import Sidebar from "./components/sidebar/Sidebar";
 import Layout from "./layout/Layout";
 
 function App() {
-  return <Sidebar />;
+  return <Layout />;
 }
 
 export default App;

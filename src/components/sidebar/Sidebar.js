@@ -30,6 +30,7 @@ import {
 import MainAppBar from "./AppBar";
 import profileImg from "../../assets/images/user.png";
 import { useState } from "react";
+import Dashboard from "../../dashboard/Dashboard";
 
 const drawerWidth = 240;
 const MenuList = styled(List)({
@@ -44,7 +45,6 @@ const MenuListItem = styled(ListItemText)({
 
 const Sidebar = function () {
   const [isShow, setIsShow] = useState(false);
-  console.log(isShow);
   return (
     <Box>
       <MainAppBar isShow={isShow} setIsShow={setIsShow} />
@@ -54,11 +54,12 @@ const Sidebar = function () {
           flexShrink: 0,
           "& .MuiDrawer-paper": {
             width: drawerWidth,
-            top: "60px",
+            top: "65px",
             boxSizing: "border-box",
-            zIndex: "-999",
+            bgcolor: "#F5F8FA",
+            // zIndex: "-999",
           },
-          display: { xs: `${isShow ? "block" : "none"}`, sm: "block" },
+          display: { xs: `${isShow ? "block" : "none"}`, xl: "block" },
         }}
         variant="permanent"
         anchor="right"

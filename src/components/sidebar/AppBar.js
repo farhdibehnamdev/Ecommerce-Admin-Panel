@@ -25,7 +25,7 @@ const MainAppBar = function ({ setIsShow, isShow }) {
           color: "#717171",
           width: "40px",
           left: "20px",
-          display: { sm: "none" },
+          display: { xl: "none" },
           cursor: "pointer",
         }}
       >
@@ -39,7 +39,7 @@ const MainAppBar = function ({ setIsShow, isShow }) {
           top: "5px",
           left: "20px",
           fontWeight: "bold",
-          display: { xs: "none", sm: "block" },
+          display: { xs: "none", xl: "block" },
           cursor: "pointer",
         }}
       >
